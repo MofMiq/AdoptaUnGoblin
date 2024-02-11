@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 public class TurnScript : MonoBehaviour
 {
     public int turn = 1;
@@ -34,6 +35,8 @@ public class TurnScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey("escape"))
+            Application.Quit();
         if (isWaiting)
         {
             timer += Time.deltaTime;
@@ -53,7 +56,6 @@ public class TurnScript : MonoBehaviour
         {
             yield return StartCoroutine(GoblinSeq(limite));
 
-            totalLaught = 0;
             pB.SetActive(true);
             ChangeText("Es mi momento de brillar");
             hoverImg = true;
@@ -78,18 +80,20 @@ public class TurnScript : MonoBehaviour
         else
             imgD.SetActive(true);
         this.enabled = false;
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene("MainMenu");
     }
 
     private IEnumerator GoblinSeq(int limite)
     {
         int i = 0;
-        yield return new WaitForSeconds(3);
         if (turn == 2)
             ChangeText("Turno 2");
         else if (turn == 3)
             ChangeText("Turno 3");
         else if (turn == 4)
-            ChangeText("Último turno");
+            ChangeText("Comienza el 4 y último turno");
+        yield return new WaitForSeconds(3);
         while (i < limite)
         {
             g.Action();
@@ -131,30 +135,29 @@ public class TurnScript : MonoBehaviour
     private IEnumerator DndSeq(int turn)
     {
         int i = 0;
-        displayText.enabled = false;
-        yield return new WaitForSeconds(5);
-        displayText.enabled = true;
+        yield return new WaitForSeconds(4);
+        ChangeText("Turno de los aventureros");
+        yield return new WaitForSeconds(2);
         while (i < 3 && turn < 4)
         {
             d.Attack(turn);
-            ChangeText("Turno de los aventureros");
             if (i == 0)
             {
                 audioManager.SeleccionAudio(2, 1, 0);
                 animBarbara.SetTrigger("AnimTrigger");
-                ChangeText("La bárbara da un HACHASO TO FUERTE");
+                RandomText(1);
             }
             if (i == 1)
             {
                 audioManager.SeleccionAudio(3, 7, 0);
                 animBardo.SetTrigger("BardTrigger");
-                ChangeText("Bardo ataca con VIOLINENCIA");
+                RandomText(2);
             }
             if (i == 2)
             {
                 audioManager.SeleccionAudio(4, 1, 1);
                 animMago.SetTrigger("MagoTrigger");
-                ChangeText("El mago ejecuta TORSIÓN TESTICULAR");
+                RandomText(3);
             }
             yield return new WaitForSeconds(2);
             if (turn == 1)
@@ -207,21 +210,13 @@ public class TurnScript : MonoBehaviour
     public void CambiaMeme(int i)
     {
         if (i == 1)
-        {
             bap.enabled = true;
-        }
         if (i == 2)
-        {
             cartel.enabled = true;
-        }
         if (i == 3)
-        {
             cena.enabled = true;
-        }
         if (i == 4)
-        {
             patri.enabled = true;
-        }
         isWaiting = true;
     }
 
@@ -236,6 +231,77 @@ public class TurnScript : MonoBehaviour
     public void ChangeText(string newText)
     {
         displayText.text = newText;
+    }
+
+    public void AttackText(int i)
+    {
+        if (i == 0)
+            ChangeText("Ataque Megapedo");
+        if (i == 1)
+            ChangeText("Ataque Vomito");
+        if (i == 2)
+            ChangeText("Ataque Fashion");
+        if (i == 3)
+            ChangeText("Ataque Achante");
+        if (i == 4)
+            ChangeText("Ataque Rumbita");
+        if (i == 5)
+            ChangeText("Ataque Cansao");
+        if (i == 6)
+            ChangeText("Ataque Guay");
+        if (i == 7)
+            ChangeText("Ataque Pasión");
+        if (i == 8)
+            ChangeText("Ataque Patrisio");
+        if (i == 9)
+            ChangeText("Ataque Cena");
+        if (i == 10)
+            ChangeText("Ataque Siglo");
+        if (i == 11)
+            ChangeText("Ataque Analfabetismo");
+    }
+
+    void RandomText(int i)
+    {
+        int nb = 0;
+
+        if (i == 1)
+            nb = Random.Range(1, 4);
+        else if (i == 2)
+            nb = Random.Range(4, 7);
+        else if (i == 3)
+            nb = Random.Range(7, 10);
+        Debug.Log("nb: " + nb);
+        switch (nb)
+        {
+            case 1:
+                ChangeText("Barbara ataque 1111");
+                break ;
+            case 2:
+                ChangeText("Barbara ataque 2222");
+                break ;
+            case 3:
+                ChangeText("Barbara ataque 3333");
+                break ;
+            case 4:
+                ChangeText("Bardo ataque 1111");
+                break ;
+            case 5:
+                ChangeText("Bardo ataque 2222");
+                break ;
+            case 6:
+                ChangeText("Bardo ataque 3333");
+                break ;
+            case 7:
+                ChangeText("Mago ataque 1111");
+                break ;
+            case 8:
+                ChangeText("Mago ataque 2222");
+                break ;
+            case 9:
+                ChangeText("Mago ataque 3333");
+                break ;
+        }
     }
 
 }
