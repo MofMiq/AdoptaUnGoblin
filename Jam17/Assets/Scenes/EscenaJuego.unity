@@ -674,7 +674,6 @@ MonoBehaviour:
   pM: {fileID: 194972275}
   pME: {fileID: 576456977}
   camara: {fileID: 519420033}
-  displayText: {fileID: 528158060}
 --- !u!4 &298821205
 Transform:
   m_ObjectHideFlags: 0
@@ -1031,22 +1030,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &528158058 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3651038554658056251, guid: 4bd032a989662834999e48da88725b9b, type: 3}
-  m_PrefabInstance: {fileID: 882608007}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &528158060 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7785184885444933544, guid: 4bd032a989662834999e48da88725b9b, type: 3}
-  m_PrefabInstance: {fileID: 882608007}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 528158058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &542084326 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8736995115103203949, guid: 4bd032a989662834999e48da88725b9b, type: 3}
@@ -1100,10 +1083,6 @@ PrefabInstance:
       propertyPath: gob3
       value: 
       objectReference: {fileID: 1340416000}
-    - target: {fileID: 2497742138465520520, guid: 9bb1dcef3c758b94ab53aabcf0ab1b40, type: 3}
-      propertyPath: turnScript
-      value: 
-      objectReference: {fileID: 298821204}
     - target: {fileID: 2497742138465520520, guid: 9bb1dcef3c758b94ab53aabcf0ab1b40, type: 3}
       propertyPath: otherScript
       value: 
@@ -1753,10 +1732,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 258581128161530381, guid: 4bd032a989662834999e48da88725b9b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 399948178659592230, guid: 4bd032a989662834999e48da88725b9b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 3
@@ -2121,10 +2096,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 100
       objectReference: {fileID: 0}
-    - target: {fileID: 3211260822642173560, guid: 4bd032a989662834999e48da88725b9b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3410136659340240272, guid: 4bd032a989662834999e48da88725b9b, type: 3}
       propertyPath: m_Pivot.y
       value: 0
@@ -2271,7 +2242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4942534726819028296, guid: 4bd032a989662834999e48da88725b9b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5295128645581876347, guid: 4bd032a989662834999e48da88725b9b, type: 3}
       propertyPath: m_Sprite
@@ -2377,10 +2348,6 @@ PrefabInstance:
       propertyPath: panelTexto
       value: 
       objectReference: {fileID: 1376064853}
-    - target: {fileID: 6047295998377838785, guid: 4bd032a989662834999e48da88725b9b, type: 3}
-      propertyPath: displayText
-      value: 
-      objectReference: {fileID: 528158058}
     - target: {fileID: 6159480394724087142, guid: 4bd032a989662834999e48da88725b9b, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -2542,24 +2509,8 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7785184885444933544, guid: 4bd032a989662834999e48da88725b9b, type: 3}
-      propertyPath: m_text
-      value: Comienza el turno 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7785184885444933544, guid: 4bd032a989662834999e48da88725b9b, type: 3}
       propertyPath: m_fontSize
-      value: 72
-      objectReference: {fileID: 0}
-    - target: {fileID: 7785184885444933544, guid: 4bd032a989662834999e48da88725b9b, type: 3}
-      propertyPath: m_margin.w
-      value: -79.85065
-      objectReference: {fileID: 0}
-    - target: {fileID: 7785184885444933544, guid: 4bd032a989662834999e48da88725b9b, type: 3}
-      propertyPath: m_margin.y
-      value: -62.00299
-      objectReference: {fileID: 0}
-    - target: {fileID: 7785184885444933544, guid: 4bd032a989662834999e48da88725b9b, type: 3}
-      propertyPath: m_margin.z
-      value: -1074.3016
+      value: 44
       objectReference: {fileID: 0}
     - target: {fileID: 7785184885444933544, guid: 4bd032a989662834999e48da88725b9b, type: 3}
       propertyPath: m_fontAsset
@@ -2583,7 +2534,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7785184885444933544, guid: 4bd032a989662834999e48da88725b9b, type: 3}
       propertyPath: m_fontSizeBase
-      value: 115.3
+      value: 44
       objectReference: {fileID: 0}
     - target: {fileID: 7785184885444933544, guid: 4bd032a989662834999e48da88725b9b, type: 3}
       propertyPath: m_overflowMode
@@ -2595,19 +2546,11 @@ PrefabInstance:
       objectReference: {fileID: 5537459643759541848, guid: 0c91a590513ba7f4bb36980476a19342, type: 2}
     - target: {fileID: 7785184885444933544, guid: 4bd032a989662834999e48da88725b9b, type: 3}
       propertyPath: m_enableAutoSizing
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7785184885444933544, guid: 4bd032a989662834999e48da88725b9b, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4281086524
-      objectReference: {fileID: 0}
-    - target: {fileID: 7785184885444933544, guid: 4bd032a989662834999e48da88725b9b, type: 3}
-      propertyPath: m_VerticalAlignment
-      value: 512
-      objectReference: {fileID: 0}
-    - target: {fileID: 7785184885444933544, guid: 4bd032a989662834999e48da88725b9b, type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7785184885444933544, guid: 4bd032a989662834999e48da88725b9b, type: 3}
       propertyPath: m_hasFontAssetChanged
@@ -3406,7 +3349,6 @@ MonoBehaviour:
   panel2: {fileID: 194972275}
   panel3: {fileID: 576456977}
   panelTexto: {fileID: 1376064853}
-  displayText: {fileID: 528158058}
 --- !u!1 &1453007657 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7912247154763966383, guid: 4bd032a989662834999e48da88725b9b, type: 3}
@@ -3428,7 +3370,6 @@ MonoBehaviour:
   panel2: {fileID: 194972275}
   panel3: {fileID: 576456977}
   panelTexto: {fileID: 1376064853}
-  displayText: {fileID: 528158058}
 --- !u!114 &1466230925 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8904070996481357509, guid: b312c37bd67c537438e17ba0749d2032, type: 3}
@@ -3487,7 +3428,6 @@ MonoBehaviour:
   panel2: {fileID: 194972275}
   panel3: {fileID: 576456977}
   panelTexto: {fileID: 1376064853}
-  displayText: {fileID: 528158058}
 --- !u!1 &1517491773 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6381962738180660969, guid: 4bd032a989662834999e48da88725b9b, type: 3}
@@ -3559,10 +3499,6 @@ PrefabInstance:
       propertyPath: gob3
       value: 
       objectReference: {fileID: 1340416000}
-    - target: {fileID: 2497742138465520520, guid: 9bb1dcef3c758b94ab53aabcf0ab1b40, type: 3}
-      propertyPath: turnScript
-      value: 
-      objectReference: {fileID: 298821204}
     - target: {fileID: 2497742138465520520, guid: 9bb1dcef3c758b94ab53aabcf0ab1b40, type: 3}
       propertyPath: otherScript
       value: 
@@ -4190,10 +4126,6 @@ PrefabInstance:
       propertyPath: gob3
       value: 
       objectReference: {fileID: 1340416000}
-    - target: {fileID: 2497742138465520520, guid: 9bb1dcef3c758b94ab53aabcf0ab1b40, type: 3}
-      propertyPath: turnScript
-      value: 
-      objectReference: {fileID: 298821204}
     - target: {fileID: 2497742138465520520, guid: 9bb1dcef3c758b94ab53aabcf0ab1b40, type: 3}
       propertyPath: otherScript
       value: 
