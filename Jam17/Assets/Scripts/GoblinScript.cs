@@ -9,7 +9,6 @@ public class GoblinScript : MonoBehaviour
     public int movimiento;
 
     public GameObject gob1, gob2, gob3;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -44,5 +43,6 @@ public class GoblinScript : MonoBehaviour
     public void IsDamaged()
     {
         health -= 3;
+        //sDebug.Log("la vida de " + this.name + " es " + health);
     }
 }
