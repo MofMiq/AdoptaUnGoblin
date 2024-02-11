@@ -16,9 +16,9 @@ public class DnDScript : MonoBehaviour
     {
 
         tablaHumor = new int [3,6]{
-            {3,2,0,2,-1,-3},
-            {1,1,-1,0,-2,3},
-            {-3,-2,2,-1,4,1}};
+            {3,2,0,3,-2,-3},
+            {-2,-1,-2,2,1,3},
+            {-3,1,1,-3,3,-2}};
 
     }
 
@@ -50,6 +50,10 @@ public class DnDScript : MonoBehaviour
         int cantidad = tablaHumor[tipo, columnaTipo1];
         cantidad += tablaHumor[tipo, columnaTipo2];
         laught.funnyQuantity += cantidad;
+        if (laught.funnyQuantity >= 6)
+            laught.funnyQuantity = 5;
+        else if (laught.funnyQuantity <= -6)
+            laught.funnyQuantity = -5;
         Debug.Log("Humor de " + name + " es fila, " + ((tipo)) + " con una cantidad"  + cantidad);
     }
 }

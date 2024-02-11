@@ -9,9 +9,12 @@ public class GoblinScript : MonoBehaviour
     public int movimiento;
 
     public GameObject gob1, gob2, gob3;
+
+    private SpriteRenderer spriteRenderer;
     // Start is called before the first frame update
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -43,6 +46,13 @@ public class GoblinScript : MonoBehaviour
     public void IsDamaged()
     {
         health -= 3;
-        //sDebug.Log("la vida de " + this.name + " es " + health);
+        spriteRenderer.color = Color.red;
+        spriteRenderer.enabled = false;
+        Invoke("EnableSpriteRenderer", 0.1f);
+    }
+    private void EnableSpriteRenderer()
+    {
+        spriteRenderer.enabled = true;
+        spriteRenderer.color = Color.white;
     }
 }
