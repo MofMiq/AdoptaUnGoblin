@@ -15,8 +15,19 @@ public class AudioManager : MonoBehaviour
         audioManager = FindObjectOfType<AudioManager>();
     }
 
-    public void SeleccionAudio(int indice, float volume)
+    // public void SeleccionAudio(int indice, float volume, int wait)
+    // {
+    //     yield return new WaitForSeconds(wait);
+    //     controlAudio.PlayOneShot(audios[indice], volume);
+    // }
+    public void SeleccionAudio(int indice, float volume, int wait)
     {
+        StartCoroutine(PlayAudioAfterDelay(indice, volume, wait));
+    }
+
+    private IEnumerator PlayAudioAfterDelay(int indice, float volume, int wait)
+    {
+        yield return new WaitForSeconds(wait);
         controlAudio.PlayOneShot(audios[indice], volume);
     }
 

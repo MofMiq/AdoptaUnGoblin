@@ -57,7 +57,7 @@ public class TurnScript : MonoBehaviour
             yield return StartCoroutine(GoblinSeq(limite));
 
             pB.SetActive(true);
-            ChangeText("Ahora es tu turno. Pulsa sobre los botones de la izquierda para ver tus opciones");
+            ChangeText("Es mi momento de brillar");
             hoverImg = true;
             pB.SetActive(true);
             yield return new WaitUntil(() => isEnterPressed);
@@ -74,17 +74,11 @@ public class TurnScript : MonoBehaviour
             limite--;
         }
         camara.mute = true;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         if (totalLaught >= 6)
-        {
-            audioManager.SeleccionAudio(11, 30);
             imgV.SetActive(true);
-        }
         else
-        {
-            audioManager.SeleccionAudio(12, 30);
             imgD.SetActive(true);
-        }
         this.enabled = false;
         yield return new WaitForSeconds(5);
         SceneManager.LoadScene("MainMenu");
@@ -94,44 +88,44 @@ public class TurnScript : MonoBehaviour
     {
         int i = 0;
         if (turn == 2)
-            ChangeText("Comienza el turno 2");
+            ChangeText("Turno 2");
         else if (turn == 3)
-            ChangeText("Comienza el turno 3");
+            ChangeText("Turno 3");
         else if (turn == 4)
             ChangeText("Comienza el 4 y último turno");
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3);
         while (i < limite)
         {
             g.Action();
             if (limite == 3 && i == 0)
             {
                 animRoki.SetTrigger("RokiTrigger");
-                ChangeText("Roki ataca");
-                audioManager.SeleccionAudio(8, 20);
-                yield return new WaitForSeconds(1);
-                audioManager.SeleccionAudio(9, 20);
+                ChangeText("Roki ataca con pedrolo");
+                audioManager.SeleccionAudio(8, 7, 0);
+                yield return new WaitForSeconds(2);
                 animRati.SetTrigger("RatiTRigger");
-                ChangeText("Rati ataca");
-                audioManager.SeleccionAudio(10, 20);
-                yield return new WaitForSeconds(1);
+                audioManager.SeleccionAudio(9, 7, 0);
+                ChangeText("Rati ataca con su pincho ratuno");
+                yield return new WaitForSeconds(2);
                 animFruti.SetTrigger("FrutiTrigger");
-                ChangeText("Fruti ataca");
+                audioManager.SeleccionAudio(10, 7, 0);
+                ChangeText("Fruti ataca con mucho potasio");
             }
             if (limite == 2 && i == 0)
             {
-                audioManager.SeleccionAudio(9, 20);
+                audioManager.SeleccionAudio(9, 7, 0);
                 animRati.SetTrigger("RatiTRigger");
-                ChangeText("Rati ataca");
-                yield return new WaitForSeconds(1);
-                audioManager.SeleccionAudio(10, 20);
+                ChangeText("Rati ataca dispuesto a pinchar");
+                yield return new WaitForSeconds(2);
+                audioManager.SeleccionAudio(10, 7, 0);
                 animFruti.SetTrigger("FrutiTrigger");
-                ChangeText("Fruti ataca");
+                ChangeText("Fruti ataca por segunda vez");
             }
             if (limite == 1 && i == 0)
             {
                 animFruti.SetTrigger("FrutiTrigger");
-                ChangeText("Fruti ataca");
-                audioManager.SeleccionAudio(8, 20);
+                ChangeText("Fruti sigue atacando con su plátano");
+                audioManager.SeleccionAudio(8, 7, 0);
             }
             yield return new WaitForSeconds(1);
             i++;
@@ -141,25 +135,27 @@ public class TurnScript : MonoBehaviour
     private IEnumerator DndSeq(int turn)
     {
         int i = 0;
+        yield return new WaitForSeconds(4);
+        ChangeText("Turno de los aventureros");
         yield return new WaitForSeconds(2);
         while (i < 3 && turn < 4)
         {
             d.Attack(turn);
             if (i == 0)
             {
-                audioManager.SeleccionAudio(2, 20);
+                audioManager.SeleccionAudio(2, 1, 0);
                 animBarbara.SetTrigger("AnimTrigger");
                 RandomText(1);
             }
             if (i == 1)
             {
-                audioManager.SeleccionAudio(3, 20);
+                audioManager.SeleccionAudio(3, 7, 0);
                 animBardo.SetTrigger("BardTrigger");
                 RandomText(2);
             }
             if (i == 2)
             {
-                audioManager.SeleccionAudio(4, 20);
+                audioManager.SeleccionAudio(4, 1, 1);
                 animMago.SetTrigger("MagoTrigger");
                 RandomText(3);
             }
@@ -178,8 +174,8 @@ public class TurnScript : MonoBehaviour
     {
         if (i == 1)
         {
-            audioManager.SeleccionAudio(0, 20);
             animPedo.SetTrigger("Pedo");
+            audioManager.SeleccionAudio(0, 3, 2);
         }
         if (i == 2)
         {
@@ -191,23 +187,23 @@ public class TurnScript : MonoBehaviour
             animAcha.SetTrigger("AchanteTrig");
         if (i == 5)
         {
-            audioManager.SeleccionAudio(1, 20);
+            audioManager.SeleccionAudio(1, 7, 0);
             animMusi.SetTrigger("MusicaTRigger");
         }
         if (i == 6)
         {
-            audioManager.SeleccionAudio(5, 20);
             animMusi.SetTrigger("MusicaTRigger");
+            audioManager.SeleccionAudio(5, 7, 0);
         }
         if (i == 7)
         {
-            audioManager.SeleccionAudio(6, 20);
             animMusi.SetTrigger("MusicaTRigger");
+            audioManager.SeleccionAudio(6, 7, 0);
         }
         if (i == 8)
         {
-            audioManager.SeleccionAudio(7, 20);
             animMusi.SetTrigger("MusicaTRigger");
+            audioManager.SeleccionAudio(7, 7, 0);
         }
     }
 
