@@ -4,10 +4,11 @@ using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class TurnScript : MonoBehaviour
 {
     public int turn = 1;
-    public int totalLaught = 0;
+    public int totalLaught;
     public GoblinScript g;
     public DnDScript d;
 
@@ -24,9 +25,12 @@ public class TurnScript : MonoBehaviour
 
     public TMP_Text displayText;
     private AudioManager audioManager;
+
+    public Slider SliderLaught;
     // Start is called before the first frame update
     void Start()
     {
+        totalLaught = 0;
         audioManager = FindObjectOfType<AudioManager>();
         pB.SetActive(false);
         StartCoroutine(GameSequence());
@@ -35,12 +39,13 @@ public class TurnScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        SliderLaught.value = totalLaught;
         if (Input.GetKey("escape"))
             Application.Quit();
         if (isWaiting)
         {
             timer += Time.deltaTime;
-            if (timer >= 1.5f)
+            if (timer >= 4f)
             {
                 DisableMeme();
                 isWaiting = false;
@@ -92,7 +97,7 @@ public class TurnScript : MonoBehaviour
         else if (turn == 3)
             ChangeText("Turno 3");
         else if (turn == 4)
-            ChangeText("Comienza el 4 y último turno");
+            ChangeText("Último turno");
         yield return new WaitForSeconds(3);
         while (i < limite)
         {
@@ -109,7 +114,7 @@ public class TurnScript : MonoBehaviour
                 yield return new WaitForSeconds(2);
                 animFruti.SetTrigger("FrutiTrigger");
                 audioManager.SeleccionAudio(10, 7, 0);
-                ChangeText("Fruti ataca con mucho potasio");
+                ChangeText("Fruti ataca con fuente de potasio");
             }
             if (limite == 2 && i == 0)
             {
@@ -161,11 +166,11 @@ public class TurnScript : MonoBehaviour
             }
             yield return new WaitForSeconds(2);
             if (turn == 1)
-                ChangeText("Roki ha fenecido");
+                ChangeText("Roki ha muelto");
             else if (turn == 2)
-                ChangeText("Rati ha fenecido");
+                ChangeText("Han matado a Rati");
             else if (turn == 3)
-                ChangeText("Fruti ha fenecido");
+                ChangeText("Fruti ha sido destruido");
             i++;
         }
     }
@@ -236,29 +241,29 @@ public class TurnScript : MonoBehaviour
     public void AttackText(int i)
     {
         if (i == 0)
-            ChangeText("Ataque Megapedo");
+            ChangeText("'Al siguiente truco lo llamaré Megapedo");
         if (i == 1)
-            ChangeText("Ataque Vomito");
+            ChangeText("Party, he gomitao");
         if (i == 2)
-            ChangeText("Ataque Fashion");
+            ChangeText("Es como si no llevara nada");
         if (i == 3)
-            ChangeText("Ataque Achante");
+            ChangeText(":)");
         if (i == 4)
-            ChangeText("Ataque Rumbita");
+            ChangeText("");
         if (i == 5)
-            ChangeText("Ataque Cansao");
+            ChangeText("");
         if (i == 6)
-            ChangeText("Ataque Guay");
+            ChangeText("");
         if (i == 7)
-            ChangeText("Ataque Pasión");
+            ChangeText("");
         if (i == 8)
-            ChangeText("Ataque Patrisio");
+            ChangeText("Kuanto me da por este tanbor?");
         if (i == 9)
-            ChangeText("Ataque Cena");
+            ChangeText("Gente, nos hemos quedao sin cena");
         if (i == 10)
-            ChangeText("Ataque Siglo");
+            ChangeText("¿A quién no le va a gustar una mazmorra del siglo primero?");
         if (i == 11)
-            ChangeText("Ataque Analfabetismo");
+            ChangeText("Este cartel no me parará porque no se leer");
     }
 
     void RandomText(int i)
@@ -271,35 +276,34 @@ public class TurnScript : MonoBehaviour
             nb = Random.Range(4, 7);
         else if (i == 3)
             nb = Random.Range(7, 10);
-        Debug.Log("nb: " + nb);
         switch (nb)
         {
             case 1:
-                ChangeText("Barbara ataque 1111");
+                ChangeText("La bárbara ataca con un HACHASO TO FUERTE");
                 break ;
             case 2:
-                ChangeText("Barbara ataque 2222");
+                ChangeText("La barbará realiza un empotramiento");
                 break ;
             case 3:
-                ChangeText("Barbara ataque 3333");
+                ChangeText("La bárbara da un SOPAPO PAL MULHACÉN");
                 break ;
             case 4:
-                ChangeText("Bardo ataque 1111");
+                ChangeText("Bardo ataca con VIOLINENCIA");
                 break ;
             case 5:
-                ChangeText("Bardo ataque 2222");
+                ChangeText("Bardo entona su RÉQUIEM POR LÁSTIMA");
                 break ;
             case 6:
-                ChangeText("Bardo ataque 3333");
+                ChangeText("Bardo realiza su PUÑALADA EN DO MENOR");
                 break ;
             case 7:
-                ChangeText("Mago ataque 1111");
+                ChangeText("El mago realiza una TORSIÓN TESTICULAR");
                 break ;
             case 8:
-                ChangeText("Mago ataque 2222");
+                ChangeText("El mago grita 'HOCUS POCUS PISOTÓN DE DIPLODOCUS'");
                 break ;
             case 9:
-                ChangeText("Mago ataque 3333");
+                ChangeText("El mago conjura: 'ABRACADABRA, UN GOBLIN SE DESCALABRA");
                 break ;
         }
     }
