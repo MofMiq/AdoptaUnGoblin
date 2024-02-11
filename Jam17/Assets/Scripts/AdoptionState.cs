@@ -17,7 +17,6 @@ public class AdoptionState : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log("t total laugh" + t.totalLaught);
         odio.enabled = t.totalLaught <= -3;
         apa.enabled = t.totalLaught == -1 || t.totalLaught == -2;
         indi.enabled = t.totalLaught == 0;
