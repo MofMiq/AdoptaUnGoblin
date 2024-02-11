@@ -25,11 +25,14 @@ public class ButtonScript : MonoBehaviour
     }
 
     public void mandarTipos() {
+        t.totalLaught = 0;
         barbara.AfectaHumor((int)t1, (int)t2);
         bardo.AfectaHumor((int)t1, (int)t2);
         mago.AfectaHumor((int)t1, (int)t2);
         t.totalLaught = barbara.laught.funnyQuantity + bardo.laught.funnyQuantity + mago.laught.funnyQuantity;
         Debug.Log("Total laught " + t.totalLaught);
+        Debug.Log("barbara " + barbara.laught.funnyQuantity + "bardo " + bardo.laught.funnyQuantity + "mago " + mago.laught.funnyQuantity);
+
         t.isEnterPressed = true;
     }
 
@@ -41,5 +44,10 @@ public class ButtonScript : MonoBehaviour
     public void LlamaMeme(int i)
     {
         t.CambiaMeme(i);
+    }
+
+    public void LlamaAttackText(int i)
+    {
+        t.AttackText(i);
     }
 }
