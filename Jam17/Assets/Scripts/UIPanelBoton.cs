@@ -1,0 +1,27 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class UIPanelBoton : MonoBehaviour
+{
+    public UIPanelBoton b1, b2;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void sombra()
+    {
+        this.GetComponent<Image>().color *= 0.5f;
+        b1.GetComponent<Image>().color = Color.white;
+        b1.GetComponent<Image>().color = Color.white;
+    }
+}
