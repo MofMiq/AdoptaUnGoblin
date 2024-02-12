@@ -46,13 +46,26 @@ public class GoblinScript : MonoBehaviour
     public void IsDamaged()
     {
         health -= 3;
-        spriteRenderer.color = Color.red;
-        spriteRenderer.enabled = false;
-        Invoke("EnableSpriteRenderer", 0.1f);
+        StartCoroutine(FeedbackDamaged());
     }
-    private void EnableSpriteRenderer()
+    private IEnumerator FeedbackDamaged()
     {
-        spriteRenderer.enabled = true;
+        TurnRed();
+        yield return new WaitForSeconds(0.2f);
+        TurnWhite();
+        yield return new WaitForSeconds(0.2f);
+        TurnRed();
+        yield return new WaitForSeconds(0.2f);
+        TurnWhite();
+    }
+
+    private void TurnWhite()
+    {
         spriteRenderer.color = Color.white;
+    }
+
+    private void TurnRed()
+    {
+        spriteRenderer.color = Color.red;
     }
 }

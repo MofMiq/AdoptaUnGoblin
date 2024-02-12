@@ -80,7 +80,7 @@ public class TurnScript : MonoBehaviour
         }
         camara.mute = true;
         yield return new WaitForSeconds(2);
-        if (totalLaught >= 6)
+        if (totalLaught >= 3)
             imgV.SetActive(true);
         else
             imgD.SetActive(true);
