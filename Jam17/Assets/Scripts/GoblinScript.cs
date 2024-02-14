@@ -50,6 +50,7 @@ public class GoblinScript : MonoBehaviour
     }
     private IEnumerator FeedbackDamaged()
     {
+        yield return new WaitForSeconds(0.1f);
         TurnRed();
         yield return new WaitForSeconds(0.2f);
         TurnWhite();

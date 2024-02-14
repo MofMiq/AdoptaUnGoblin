@@ -20,6 +20,11 @@ public class TurnScript : MonoBehaviour
     private float timer = 0;
     private bool isWaiting = false;
     public GameObject imgV, imgD, pB, pV, pM, pME;
+    public GameObject magojuande;
+    public GameObject bardjuande;
+    public GameObject barbijuande;
+    public GameObject realplayerjuande;
+    public GameObject myCanvas;
 
     public AudioSource camara;
 
@@ -80,6 +85,11 @@ public class TurnScript : MonoBehaviour
         }
         camara.mute = true;
         yield return new WaitForSeconds(2);
+        myCanvas.gameObject.SetActive(false);
+        barbijuande.gameObject.SetActive(false);
+        magojuande.gameObject.SetActive(false);
+        bardjuande.gameObject.SetActive(false);
+        realplayerjuande.gameObject.SetActive(false);
         if (totalLaught >= 3)
             imgV.SetActive(true);
         else
@@ -160,7 +170,7 @@ public class TurnScript : MonoBehaviour
             }
             if (i == 2)
             {
-                audioManager.SeleccionAudio(4, 1, 1);
+                audioManager.SeleccionAudio(4, 1, 0);
                 animMago.SetTrigger("MagoTrigger");
                 RandomText(3);
             }
