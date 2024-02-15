@@ -151,7 +151,10 @@ public class TurnScript : MonoBehaviour
     {
         int i = 0;
         yield return new WaitForSeconds(4);
-        ChangeText("Turno de los aventureros");
+        if (turn < 4)
+            ChangeText("Turno de los aventureros");
+        else
+            ChangeText("Fin del combate");
         yield return new WaitForSeconds(2);
         while (i < 3 && turn < 4)
         {
@@ -184,7 +187,7 @@ public class TurnScript : MonoBehaviour
             i++;
         }
     }
-    
+
     public void CambiaAnimacion(int i)
     {
         if (i == 1)
@@ -290,31 +293,31 @@ public class TurnScript : MonoBehaviour
         {
             case 1:
                 ChangeText("La bárbara ataca con un HACHASO TO FUERTE");
-                break ;
+                break;
             case 2:
                 ChangeText("La barbará realiza un empotramiento");
-                break ;
+                break;
             case 3:
                 ChangeText("La bárbara da un SOPAPO PAL MULHACÉN");
-                break ;
+                break;
             case 4:
                 ChangeText("Bardo ataca con VIOLINENCIA");
-                break ;
+                break;
             case 5:
                 ChangeText("Bardo entona su RÉQUIEM POR LÁSTIMA");
-                break ;
+                break;
             case 6:
                 ChangeText("Bardo realiza su PUÑALADA EN DO MENOR");
-                break ;
+                break;
             case 7:
                 ChangeText("El mago realiza una TORSIÓN TESTICULAR");
-                break ;
+                break;
             case 8:
                 ChangeText("El mago grita 'HOCUS POCUS PISOTÓN DE DIPLODOCUS'");
-                break ;
+                break;
             case 9:
                 ChangeText("El mago conjura: 'ABRACADABRA, UN GOBLIN SE DESCALABRA");
-                break ;
+                break;
         }
     }
 

@@ -10,17 +10,22 @@ public class DnDScript : MonoBehaviour
 
     public GoblinScript g1,g2,g3;
 
+    private SpriteRenderer spriteRenderer;
+
     public int[,] tablaHumor;
     // Start is called before the first frame update
     void Start()
     {
 
-        tablaHumor = new int [3,6]{
+        tablaHumor = new int[3, 6]{
             {3,2,0,3,-2,-3},
             {-2,-1,-2,2,1,3},
             {-3,1,1,-3,3,-2}};
 
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
+
+   
 
     // Update is called once per frame
     void Update()
@@ -32,8 +37,27 @@ public class DnDScript : MonoBehaviour
     {
         //Debug.Log("Entro en QuitoVida" + health);
         health--;
-        //Debug.Log("la vida de " + this.name + " es " + health);
+        StartCoroutine(FeedbackDamaged());
     }
+    private IEnumerator FeedbackDamaged()
+    {
+        yield return new WaitForSeconds(0.1f);
+        TurnYellow();
+        yield return new WaitForSeconds(0.2f);
+        TurnWhite();
+    }
+
+    private void TurnWhite()
+    {
+        spriteRenderer.color = Color.white;
+    }
+
+    private void TurnYellow()
+    {
+        spriteRenderer.color = Color.yellow;
+    }
+    //Debug.Log("la vida de " + this.name + " es " + health);
+
 
     public void Attack(int turn)
     {
