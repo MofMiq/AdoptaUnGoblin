@@ -25,6 +25,7 @@ public class TurnScript : MonoBehaviour
     public GameObject barbijuande;
     public GameObject realplayerjuande;
     public GameObject myCanvas;
+    public GameObject halo;
 
     public AudioSource camara;
 
@@ -66,11 +67,13 @@ public class TurnScript : MonoBehaviour
         {
             yield return StartCoroutine(GoblinSeq(limite));
 
+            halo.SetActive(true);
             pB.SetActive(true);
             ChangeText("Es mi momento de brillar");
             hoverImg = true;
             pB.SetActive(true);
             yield return new WaitUntil(() => isEnterPressed);
+            halo.SetActive(false);
             isEnterPressed = false;
             hoverImg = false;
 
@@ -111,18 +114,22 @@ public class TurnScript : MonoBehaviour
         yield return new WaitForSeconds(3);
         while (i < limite)
         {
-            g.Action();
+            
+            
             if (limite == 3 && i == 0)
             {
                 animRoki.SetTrigger("RokiTrigger");
+                g.Action();
                 ChangeText("Roki ataca con pedrolo");
                 audioManager.SeleccionAudio(8, 7, 0);
                 yield return new WaitForSeconds(2);
                 animRati.SetTrigger("RatiTRigger");
+                g.Action();
                 audioManager.SeleccionAudio(9, 7, 0);
                 ChangeText("Rati ataca con su pincho ratuno");
                 yield return new WaitForSeconds(2);
                 animFruti.SetTrigger("FrutiTrigger");
+                g.Action();
                 audioManager.SeleccionAudio(10, 7, 0);
                 ChangeText("Fruti ataca con fuente de potasio");
             }
@@ -130,15 +137,18 @@ public class TurnScript : MonoBehaviour
             {
                 audioManager.SeleccionAudio(9, 7, 0);
                 animRati.SetTrigger("RatiTRigger");
+                g.Action();
                 ChangeText("Rati ataca dispuesto a pinchar");
                 yield return new WaitForSeconds(2);
                 audioManager.SeleccionAudio(10, 7, 0);
                 animFruti.SetTrigger("FrutiTrigger");
+                g.Action();
                 ChangeText("Fruti ataca por segunda vez");
             }
             if (limite == 1 && i == 0)
             {
                 animFruti.SetTrigger("FrutiTrigger");
+                g.Action();
                 ChangeText("Fruti sigue atacando con su plátano");
                 audioManager.SeleccionAudio(8, 7, 0);
             }

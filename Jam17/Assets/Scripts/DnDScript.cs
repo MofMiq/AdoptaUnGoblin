@@ -35,7 +35,7 @@ public class DnDScript : MonoBehaviour
 
     public void QuitaVida()
     {
-        //Debug.Log("Entro en QuitoVida" + health);
+        Debug.Log("Entro en QuitoVida" + health);
         health--;
         StartCoroutine(FeedbackDamaged());
     }
