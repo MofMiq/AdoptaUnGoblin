@@ -961,7 +961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b57ba7672cffda4fa8f168ed1c9ce5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animacionfinal: {fileID: 7400000, guid: be2cd031f557f1641a818fde76a31515, type: 2}
+  animacionfinal: {fileID: 7400000, guid: caefc5e326db3e2488fe0c13d2957832, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -30,7 +30,7 @@ public class TransitionScene : MonoBehaviour
         animator.SetTrigger("TriggerImg");
         yield return new WaitForSeconds(animacionfinal.length);
 
-        if (contador == 3)
+        if (contador == 4)
         {
             SceneManager.LoadScene("EscenaJuego");
         }
