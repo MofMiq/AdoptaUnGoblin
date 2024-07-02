@@ -16,6 +16,9 @@ This game has been created in Unity with C#.
 
 You can play with this [link](https://quione28.itch.io/adopta-un-goblin).
 
+<img src="game_screenshot.png" alt="Game" width="1000"/>
+
+
 ## Authors
 - [Juan Ariza](https://github.com/jariza-o)(Software Developer, accessibility, design support)
 - [Marina Rodriguez](https://github.com/MofMiq)(Software Developer, animation)
