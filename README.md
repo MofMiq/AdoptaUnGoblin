@@ -24,5 +24,5 @@ You can play with this [link](https://quione28.itch.io/adopta-un-goblin).
 - [Marina Rodriguez](https://github.com/MofMiq)(Software Developer, animation)
 - [Juande Pérez](https://github.com/jperez-j)(Game Designer, UI/UX graphic design)
 - [Luh González](https://itch.io/profile/katastraa)(2D illustration, animation, character designer, SFX)
-- [Ana Montenegro](https://quione28.itch.io/):(Narrative, script, music. SFX, graphic design)
+- [Ana Montenegro](https://quione28.itch.io/)(Narrative, script, music. SFX, graphic design)
 - [Antonio J Armenteros](https://github.com/antjarm)(Software Developer)
